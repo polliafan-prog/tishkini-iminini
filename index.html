@@ -315,13 +315,14 @@ const SET_STRICT={
   {id:'shakhmaty',nom:'шахматы',acc:'шахматы',oh:'Ой'},{id:'chashka',nom:'чашка',acc:'чашку',oh:'Ух ты'},
   {id:'meshochek',nom:'мешочек',acc:'мешочек',oh:'Ой'},{id:'shubka',nom:'шубка',acc:'шубку',oh:'Ух ты'},
   {id:'shtanishki',nom:'штанишки',acc:'штанишки',oh:'Ой'},{id:'naushniki',nom:'наушники',acc:'наушники',oh:'Ух ты'},
-  {id:'knizhka',nom:'книжка',acc:'книжку',oh:'Ух ты'}
+  {id:'knizhka',nom:'книжка',acc:'книжку',oh:'Ух ты'},{id:'ushanka',nom:'шапка-ушанка',acc:'шапку-ушанку',oh:'Ой'},
+  {id:'bashmachki',nom:'башмачки',acc:'башмачки',oh:'Ух ты'},{id:'koshechka',nom:'кошечка',acc:'кошечку',oh:'Ой'},{id:'mishutka',nom:'мишутка',acc:'мишутку',oh:'Ух ты'}
  ],
- WISHES:{petushok:[{w:'«Тишка, будь шутником!»',k:'шутник'},{w:'«Тишка, шагай выше!»',k:'выше'}],
-  kukushka:[{w:'«Ку-ку! Тишка, читай книжки!»',k:'книжки'},{w:'«Ку-ку! Тишке — шишки и шашки!»',k:'шишки'}],
-  koshka:[{w:'«Тишка, будь могучим, как наш мишка!»',k:'мишка'},{w:'«Мяу! Тишка, ушки — на макушке!»',k:'ушки'}],
-  shpits:[{w:'«Гав! Тишке — пышки и кашу!»',k:'пышки'},{w:'«Гав! Тишке — шапку и шубку!»',k:'шубка'}],
-  mishka:[{w:'«Тишка, ешь вишню!»',k:'вишня'},{w:'«Тишка, ты — наш чудо-мышонок!»',k:'мышонок'}]},
+ WISHES:{petushok:[{w:'«Тишка, ты — душа компании!»',k:'душа'},{w:'«Тишка, будь нашим шутником!»',k:'шутник'},{w:'«Тишка, ты — шумный и умный!»',k:'шумный'}],
+  kukushka:[{w:'«Ку-ку! Тишка, ты — наш чудо-мышонок!»',k:'мышонок'},{w:'«Ку-ку! Тишка, ты — наша душка!»',k:'душка'}],
+  koshka:[{w:'«Мяу! Тишка, будь могучим, как наш мишка!»',k:'мишка'},{w:'«Мяу! Тишка, ушки — на макушке!»',k:'ушки'}],
+  shpits:[{w:'«Гав! Тишка, шуми и шути — ты именинник!»',k:'шуми'},{w:'«Гав-гав! Тишка, ты — наш умный мышонок!»',k:'умный'}],
+  mishka:[{w:'«Тишка, ты — наш нежный мышонок!»',k:'нежный'},{w:'«Тишка, ты — наш именинник! Ешь пышку!»',k:'пышка'},{w:'«Тишка, ешь кашку — будешь могучим!»',k:'кашка'}]},
  WANT:[{id:'shakhmaty',w:'шахматы',acc:'шахматы'},{id:'mashinka',w:'машинка',acc:'машинку'},{id:'shubka',w:'шубка',acc:'шубку'},{id:'pyshka',w:'пышка',acc:'пышку'},{id:'shapka',w:'шапка',acc:'шапку'}],
  PH:{
   gift:(k,g)=>{const c=CH[k];return [g.nom,`${cap1(g.nom)} — от ${c.gen}.`,`${c.nom} даёт Тишке ${g.acc}.`,`${c.nom} даёт Тишке ${g.acc}. Мышонок: «${g.oh}, ${g.nom}! ${c.nom}, ты — чудо!»`];},
@@ -377,13 +378,17 @@ const SET_FULL={
   {id:'meshochek',nom:'мешочек',acc:'мешочек',oh:'Ой'},{id:'shubka',nom:'шубка',acc:'шубку',oh:'Ух ты'},
   {id:'shtanishki',nom:'штанишки',acc:'штанишки',oh:'Ой'},{id:'naushniki',nom:'наушники',acc:'наушники',oh:'Ух ты'},
   {id:'knizhka',nom:'книжка',acc:'книжку',oh:'Ух ты'},{id:'sharf',nom:'шарф',acc:'шарф',oh:'Ура'},
-  {id:'shokoladka',nom:'шоколадка',acc:'шоколадку',oh:'Ура'},{id:'karandashi',nom:'карандаши',acc:'карандаши',oh:'Ура'}
+  {id:'shokoladka',nom:'шоколадка',acc:'шоколадку',oh:'Ура'},{id:'karandashi',nom:'карандаши',acc:'карандаши',oh:'Ура'},
+  {id:'ushanka',nom:'шапка-ушанка',acc:'шапку-ушанку',oh:'Ой'},{id:'bashmachki',nom:'башмачки',acc:'башмачки',oh:'Ух ты'},{id:'koshechka',nom:'кошечка',acc:'кошечку',oh:'Ой'},
+  {id:'mishutka',nom:'мишутка',acc:'мишутку',oh:'Ух ты'},{id:'sharik',nom:'воздушный шарик',acc:'воздушный шарик',oh:'Ура'},{id:'nevalyashka',nom:'неваляшка',acc:'неваляшку',oh:'Ой'},
+  {id:'loshadka',nom:'лошадка',acc:'лошадку',oh:'Ура'},{id:'matryoshka',nom:'матрёшка',acc:'матрёшку',oh:'Ой'},{id:'shkatulka',nom:'шкатулка',acc:'шкатулку',oh:'Ух ты'},
+  {id:'kruzhka',nom:'кружка',acc:'кружку',oh:'Ура'}
  ],
  WISHES:{petushok:[{w:'«Тишка, желаю тебе шумного и весёлого праздника!»',k:'праздник'},{w:'«Тишка, будь весёлым шалунишкой!»',k:'шалунишка'}],
   kukushka:[{w:'«Ку-ку! Желаю тебе верных друзей и шумных игр!»',k:'друзья'},{w:'«Ку-ку! Пусть твои ушки слышат только добрые слова!»',k:'ушки'}],
-  koshka:[{w:'«Тишка, будь сильным и смелым, как наш мишка!»',k:'мишка'},{w:'«Мяу! Пусть твоя пушистая шубка всегда будет тёплой!»',k:'шубка'}],
+  koshka:[{w:'«Тишка, будь сильным и смелым, как наш мишка!»',k:'мишка'},{w:'«Мяу! Тишка, будь ловким, как кошка!»',k:'кошка'}],
   shpits:[{w:'«Гав! Желаю вкусных пышек каждый день!»',k:'пышки'},{w:'«Гав! Пусть у тебя будет много шишек и орешков!»',k:'шишки'}],
-  mishka:[{w:'«Тишка, читай свою новую книжку!»',k:'книжка'},{w:'«Пусть у тебя всё будет хорошо!»',k:'хорошо'}]},
+  mishka:[{w:'«Тишка, пусть твой домик будет самым уютным и большим!»',k:'домик'},{w:'«Пусть у тебя всё будет хорошо!»',k:'хорошо'}]},
  WANT:[{id:'shakhmaty',w:'шахматы',acc:'шахматы'},{id:'mashinka',w:'машинка',acc:'машинку'},{id:'shubka',w:'шубка',acc:'шубку'},{id:'pyshka',w:'пышка',acc:'пышку'},
   {id:'sharf',w:'шарф',acc:'шарф'},{id:'shokoladka',w:'шоколадка',acc:'шоколадку'}],
  PH:{
@@ -493,6 +498,7 @@ const TUMB={x:4.4,z:-4.95};
 const SHK={x:-4.75,z:-2.2};
 const JUG={x:-4.5,z:-.35};
 const PIL={x:4.1,z:-1.1};
+const OBST=[{x:4.1,z:-1.1,r:1.0},{x:-3.9,z:-4.95,r:.85},{x:4.4,z:-4.95,r:.42},{x:-4.75,z:-2.2,r:.5},{x:-4.5,z:-.35,r:.32}];
 const TABLE={x:.25,z:-2.45,r:.92,h:.58};
 const GATE={z:10.5};
 const SEAT_A={tishka:62,petushok:122,kukushka:178,koshka:232,shpits:300,mishka:5};
@@ -928,6 +934,38 @@ function mkGift(id){const g=new THREE.Group();
       P(g,GE.cyl,c,x,.3+tl,z,.018,.34,.018,Math.sin(a)*.12,0,-Math.cos(a)*.12);P(g,GE.cone,'#f0d2a8',x*1.4,.49+tl,z*1.4,.018,.05,.018,Math.sin(a)*.12,0,-Math.cos(a)*.12);P(g,GE.cone,c,x*1.45,.51+tl,z*1.45,.007,.02,.007);});}
   else if(id==='pyshka'){P(g,GE.ico1s,'#e3a04a',0,.09,0,.2,.11,.2,0,0,0,{flatShading:false});P(g,GE.ico1s,'#fff6ea',0,.15,0,.17,.05,.17,0,0,0,{flatShading:false});
     for(let i=0;i<10;i++){const a=i/10*TAU;P(g,GE.box,['#ff7a8a','#ffd166','#7bd3b5','#8ab6ff'][i%4],Math.cos(a)*.1,.2,Math.sin(a)*.1,.025,.008,.008,0,a);}}
+  else if(id==='ushanka'){P(g,GE.sph,'#7a5a46',0,.14,0,.17,.15,.17,0,0,0,{flatShading:false});P(g,cylT(.18,.18,20),'#c9a27a',0,.1,0,1,.07,1,0,0,0,{flatShading:false});
+    P(g,GE.box,'#c9a27a',0,.2,.15,.24,.12,.05,-.35,0,0);[-1,1].forEach(k=>{P(g,GE.box,'#c9a27a',k*.18,.03,0,.05,.16,.18,0,0,k*.08);P(g,GE.cyl8,'#5a4232',k*.18,-.08,.06,.008,.12,.008);});
+    P(g,GE.sph,'#8a6a56',0,.29,0,.03,.02,.03,0,0,0,{flatShading:false});}
+  else if(id==='bashmachki'){[-1,1].forEach(k=>{const x=k*.09;P(g,GE.box,'#6b3e2b',x,.015,0,.11,.03,.28);P(g,GE.sph,'#d9453a',x,.06,.07,.06,.05,.08,0,0,0,{flatShading:false});
+    P(g,GE.sph,'#d9453a',x,.075,-.05,.06,.07,.09,0,0,0,{flatShading:false});P(g,GE.box,'#2b2d31',x,.11,.0,.12,.015,.025);P(g,GE.sph,'#ffd166',x+k*.06,.11,0,.013,.013,.013,0,0,0,{flatShading:false});});}
+  else if(id==='koshechka'){const c='#b9b7c4';P(g,GE.sph,c,0,.11,-.02,.1,.11,.12,0,0,0,{flatShading:false});P(g,GE.sph,c,0,.27,.06,.09,.085,.08,0,0,0,{flatShading:false});
+    [-1,1].forEach(k=>{P(g,GE.cone,c,k*.055,.36,.05,.03,.06,.025,0,0,-k*.25);P(g,GE.cone,'#f2a7b8',k*.055,.355,.06,.016,.04,.01,0,0,-k*.25);eye(g,k*.033,.29,.13,.014);
+      P(g,GE.sph,c,k*.06,.03,.08,.035,.03,.045,0,0,0,{flatShading:false});});P(g,GE.sph,'#f28aa0',0,.26,.14,.012,.009,.01,0,0,0,{flatShading:false});
+    P(g,GE.tor,c,-.07,.09,-.12,.09,.09,.3,0,1.2,0);P(g,GE.box,'#ff7a8a',0,.2,.1,.12,.02,.02);}
+  else if(id==='mishutka'){const c='#a8743f',l='#e3c08f';P(g,GE.sph,c,0,.12,0,.11,.13,.1,0,0,0,{flatShading:false});P(g,GE.sph,l,0,.12,.07,.07,.08,.04,0,0,0,{flatShading:false});P(g,GE.sph,c,0,.3,.01,.1,.095,.09,0,0,0,{flatShading:false});
+    P(g,GE.sph,l,0,.28,.085,.045,.035,.035,0,0,0,{flatShading:false});P(g,GE.sph,'#2b1d14',0,.295,.115,.015,.012,.01,0,0,0,{flatShading:false});
+    [-1,1].forEach(k=>{P(g,GE.sph,c,k*.075,.38,0,.035,.035,.025,0,0,0,{flatShading:false});P(g,GE.sph,l,k*.075,.38,.012,.02,.02,.01,0,0,0,{flatShading:false});eye(g,k*.035,.32,.08,.013);
+      P(g,GE.sph,c,k*.11,.15,.03,.035,.07,.035,0,0,k*.5,{flatShading:false});P(g,GE.sph,c,k*.06,.03,.05,.04,.035,.06,0,0,0,{flatShading:false});});
+    P(g,GE.box,'#e84a5f',0,.215,.06,.1,.03,.02);}
+  else if(id==='sharik'){P(g,GE.sph,'#e84a5f',0,.42,0,.13,.16,.13,0,0,0,{flatShading:false,roughness:.3});P(g,GE.cone,'#e84a5f',0,.25,0,.02,.03,.02,Math.PI,0,0);
+    P(g,GE.cyl8,'#888888',0,.12,0,.004,.24,.004);P(g,GE.sph,'#ffffff',-.05,.48,.09,.025,.035,.01,0,0,0,{flatShading:false,emissive:'#ffffff',emissiveIntensity:.3});}
+  else if(id==='nevalyashka'){P(g,GE.sph,'#e84a5f',0,.12,0,.13,.12,.13,0,0,0,{flatShading:false});P(g,GE.sph,'#f6e7d2',0,.28,0,.085,.085,.085,0,0,0,{flatShading:false});
+    P(g,GE.sph,'#e84a5f',0,.31,-.012,.09,.07,.09,0,0,0,{flatShading:false});P(g,GE.sph,'#f6e7d2',0,.275,.05,.055,.055,.04,0,0,0,{flatShading:false});
+    [-1,1].forEach(k=>{eye(g,k*.022,.285,.088,.01);P(g,GE.sph,'#ff9aa8',k*.04,.265,.08,.012,.008,.006,0,0,0,{flatShading:false});});P(g,GE.sph,'#ffffff',0,.14,.12,.05,.05,.015,0,0,0,{flatShading:false});}
+  else if(id==='loshadka'){const c='#f1e4c8';[-1,1].forEach(k=>P(g,GE.tor,'#c98445',k*.07,.14,0,.26,.16,.5,0,Math.PI/2,0));
+    P(g,GE.sph,c,0,.27,0,.08,.07,.15,0,0,0,{flatShading:false});P(g,GE.sph,c,0,.38,.12,.05,.08,.05,.5,0,0,{flatShading:false});P(g,GE.sph,c,0,.42,.18,.04,.04,.06,.2,0,0,{flatShading:false});
+    [[-1,1],[1,1],[-1,-1],[1,-1]].forEach(([a,b])=>P(g,GE.cyl8,c,a*.045,.19,b*.09,.018,.12,.018));
+    P(g,GE.box,'#8a5434',0,.42,.1,.02,.12,.05,.5,0,0);P(g,GE.cone,'#8a5434',0,.24,-.17,.025,.12,.025,-2.2,0,0);P(g,GE.box,'#e84a5f',0,.33,0,.12,.02,.07);
+    [-1,1].forEach(k=>eye(g,k*.03,.44,.2,.01));}
+  else if(id==='matryoshka'){P(g,GE.sph,'#d9453a',0,.13,0,.11,.14,.1,0,0,0,{flatShading:false});P(g,GE.sph,'#d9453a',0,.29,0,.075,.08,.075,0,0,0,{flatShading:false});
+    P(g,GE.sph,'#f6e7d2',0,.29,.045,.05,.055,.04,0,0,0,{flatShading:false});P(g,GE.sph,'#ffd166',0,.11,.08,.06,.07,.03,0,0,0,{flatShading:false});P(g,GE.sph,'#4f9a48',0,.13,.1,.025,.025,.01,0,0,0,{flatShading:false});
+    [-1,1].forEach(k=>{eye(g,k*.017,.3,.08,.008);P(g,GE.sph,'#ff9aa8',k*.03,.28,.08,.01,.007,.005,0,0,0,{flatShading:false});});}
+  else if(id==='shkatulka'){P(g,GE.box,'#5aa8ff',0,.07,0,.32,.14,.22);P(g,GE.box,'#ffd166',0,.07,.112,.32,.02,.004);P(g,GE.box,'#ffd166',0,.07,-.112,.32,.02,.004);
+    const lid=grp(g,0,.14,-.11);lid.rotation.x=-.6;P(lid,GE.box,'#5aa8ff',0,.025,.11,.34,.05,.24);P(lid,GE.box,'#ffd166',0,.052,.11,.08,.008,.08);P(lid,GE.sph,'#ff7a8a',0,.065,.11,.025,.02,.025,0,0,0,{flatShading:false});
+    P(g,GE.box,'#c9a7ff',0,.13,0,.28,.01,.18);}
+  else if(id==='kruzhka'){P(g,cylT(.1,.09,22),'#7bd3b5',0,.12,0,1,.24,1,0,0,0,{flatShading:false});P(g,cylT(.085,.085,22),'#5a3424',0,.235,0,1,.01,1,0,0,0,{flatShading:false});
+    P(g,GE.tor,'#7bd3b5',.11,.12,0,.06,.06,.3,0,0,Math.PI/2);P(g,GE.box,'#ffffff',0,.13,.098,.07,.05,.004);P(g,GE.sph,'#ff7a8a',0,.13,.1,.015,.015,.004,0,0,0,{flatShading:false});}
   else if(id==='naushniki'){const arc=new THREE.TorusGeometry(1,.13,8,24,Math.PI);P(g,arc,'#3a3f4a',0,.22,0,.18,.18,.16,0,0,0,{flatShading:false});P(g,arc,'#5aa8ff',0,.22,0,.165,.165,.13,0,0,0,{flatShading:false});
     [-1,1].forEach(k=>{P(g,cylT(.08,.08,18),'#5aa8ff',k*.19,.2,0,1,.055,1,0,0,Math.PI/2,{flatShading:false});P(g,cylT(.07,.07,18),'#2b2d31',k*.155,.2,0,1,.03,1,0,0,Math.PI/2,{flatShading:false});
       P(g,cylT(.04,.04,14),'#ffffff',k*.22,.2,0,1,.01,1,0,0,Math.PI/2,{flatShading:false});P(g,GE.box,'#3a3f4a',k*.185,.27,0,.02,.05,.03);});}
@@ -1242,10 +1280,16 @@ async function turnTo(A,ang,ms){const a0=A.g.rotation.y,d=angDiff(a0,ang);if(Mat
 function faceTo(A,x,z,ms){return turnTo(A,Math.atan2(x-A.g.position.x,z-A.g.position.z),ms||300);}
 async function walkTo(A,x,z,sp,quick){const g=A.g;sp=sp||A.spd||1.6;const sx=g.position.x,sz=g.position.z,d=Math.hypot(x-sx,z-sz);if(d<.02)return;
   A.sitT=0;A.walking=true;if(quick)g.rotation.y=Math.atan2(x-sx,z-sz);else await turnTo(A,Math.atan2(x-sx,z-sz),240);
-  await tween(d/sp*1000,t=>{g.position.x=sx+(x-sx)*t;g.position.z=sz+(z-sz)*t;g.position.y=FY(g.position.x,g.position.z);});A.walking=false;}
+  // soft side-step around anybody standing on the way, so nobody walks through anybody
+  const ux=(x-sx)/d,uz=(z-sz)/d,others=Object.values(chars).filter(B=>B!==A&&B.g.visible&&B.g.parent===scene).map(B=>({p:B.g.position,r:.7}));
+  if(!inRoom)OBST.forEach(o=>{const r=o.r+.35;if(Math.hypot(sx-o.x,sz-o.z)>r&&Math.hypot(x-o.x,z-o.z)>r)others.push({p:o,r});});
+  await tween(d/sp*1000,t=>{let px=sx+(x-sx)*t,pz=sz+(z-sz)*t,off=0;
+    for(const B of others){const bx=B.p.x-px,bz=B.p.z-pz,dd=Math.hypot(bx,bz);if(dd<B.r){const side=(ux*bz-uz*bx)>0?-1:1;off+=side*(B.r-dd)*1.3;}}
+    off=clamp(off,-.9,.9)*Math.min(1,Math.sin(Math.PI*t)*3);A._off=lerp(A._off||0,off,.25);
+    g.position.x=px-uz*A._off;g.position.z=pz+ux*A._off;g.position.y=FY(g.position.x,g.position.z);});A._off=0;g.position.x=x;g.position.z=z;g.position.y=FY(x,z);A.walking=false;}
 function segHits(x0,z0,x1,z1){const dx=x1-x0,dz=z1-z0;const L2=dx*dx+dz*dz||1;let t=((TABLE.x-x0)*dx+(TABLE.z-z0)*dz)/L2;t=clamp(t,0,1);return Math.hypot(x0+dx*t-TABLE.x,z0+dz*t-TABLE.z)<1.4;}
 async function go(A,x,z,sp){const p=A.g.position;if(!segHits(p.x,p.z,x,z))return walkTo(A,x,z,sp);
-  const R=2.05;const a0=Math.atan2(p.z-TABLE.z,p.x-TABLE.x),a1=Math.atan2(z-TABLE.z,x-TABLE.x);
+  const R=2.3;const a0=Math.atan2(p.z-TABLE.z,p.x-TABLE.x),a1=Math.atan2(z-TABLE.z,x-TABLE.x);
   await walkTo(A,TABLE.x+Math.cos(a0)*R,TABLE.z+Math.sin(a0)*R,sp);
   const d=angDiff(a0,a1),n=Math.max(1,Math.ceil(Math.abs(d)/.4));
   for(let i=1;i<=n;i++){const a=a0+d*i/n;await walkTo(A,TABLE.x+Math.cos(a)*R,TABLE.z+Math.sin(a)*R,sp,true);}
@@ -1335,7 +1379,7 @@ async function stGifts(tok){const t=T();
   await dayTo(.2,900);chk(tok);
   $('list').hidden=false;chips();placeCap();
   shot(0,0,0,closeR(2.2),t.g,.6,.3,.25);
-  await go(t,0,.25,2);chk(tok);await faceTo(t,0,6);
+  await go(t,.7,.3,2);chk(tok);await faceTo(t,0,6);
   const pathShot=()=>shot(0,.9,7.5,closeR(4.6),null,1,.42,2.75);pathShot();
   for(let i=0;i<GUESTS.length;i++){const k=GUESTS[i],A=chars[k],gift=G.gifts[k];chipState(k,'cur');
     A.g.visible=true;A.sitT=0;A.g.position.set(0,Y(0,17),17);A.g.rotation.set(0,Math.PI,0);
@@ -1358,7 +1402,7 @@ async function stGifts(tok){const t=T();
     const pp=PILE[i];await arc(gm,new V3(pp[0],DECK.y,pp[1]),1,800,1.2,i);chk(tok);await tween(250,x=>giftBox.scale.setScalar(Math.max(.001,1-x)));giftBox.visible=false;giftBox.scale.setScalar(1);
     chipState(k,'got');
     shot(0,0,0,closeR(2.4),A.g,.6,.35,.6);
-    await toSeat(k,2.2);hatOnHead(k);sfx.pop();chk(tok);
+    await walkTo(A,-.45,1.0,2.2);chk(tok);await toSeat(k,2.2);hatOnHead(k);sfx.pop();chk(tok);
     if(i<GUESTS.length-1)pathShot();else shot(TABLE.x,.9,TABLE.z,closeR(2.3),null,1,.4,.25);}
   await toSeat('tishka',2);chk(tok);await dayTo(.36,1200);chk(tok);}
 
@@ -1383,7 +1427,7 @@ const REVEAL={pillow:()=>[PIL.x-.4,DECK.y,PIL.z+.85],jug:()=>[JUG.x+.65,DECK.y,J
 const PEEK={pillow:A=>[PIL.x+(A.k==='petushok'?.35:-.25),DECK.y+.5+A.hr*1.1-A.top,PIL.z-.62,0],
   jug:A=>[JUG.x,DECK.y+1.04+A.hr*1.2-A.top,JUG.z,.4],
   wIn:A=>[WARD.x,DECK.y+WARD.leg,WARD.z-.02,0],
-  wTop:A=>A.k==='mishka'?[WARD.x+.32,ward.top+A.hr*1.3-A.top,WARD.z-.12,0]:[WARD.x+.35,ward.top,WARD.z-.1,.3],
+  wTop:A=>A.k==='mishka'?[WARD.x+.1,ward.top-A.legLen*.55+.02,WARD.z+.12,.15]:[WARD.x+.35,ward.top,WARD.z-.1,.3],
   wUnder:A=>A.quad?[WARD.x+.15,DECK.y-.375,WARD.z+.4+.06-.25,.15]:[WARD.x+.25,DECK.y-.22,WARD.z+.08,.3],
   okno:A=>[WIN.x+.26,SILL_Y+.04,WIN.z+.13,-.3],
   tumb:A=>A.quad?[TUMB.x-.1,DECK.y-.375,TUMB.z+.33+.06-.25,-.15]:[TUMB.x-.08,DECK.y-.22,TUMB.z+.05,-.3]};
@@ -1394,7 +1438,7 @@ async function stSeek(tok){const cat=chars.koshka;
   cat.state='cover';caption('Кошка','Раз, два, три, четыре, пять — я иду искать!');await sleep(900);chk(tok);
   const order=['tishka',...shuffle(['mishka','kukushka','petushok','shpits'])];
   $('fade').classList.add('fur');$('paws').classList.add('on');await fadeTo(1,650);chk(tok);
-  for(const k of order){const A=chars[k],pk=PEEK[G.hide[k]](A);A.sitT=0;A.sit=0;A.walking=false;A.g.position.set(pk[0],pk[1],pk[2]);A.g.rotation.set(0,pk[3],0);A.g.scale.setScalar(G.hide[k]==='okno'?.9:1);A.g.visible=true;}
+  for(const k of order){const A=chars[k],pk=PEEK[G.hide[k]](A);A.sitT=0;A.sit=0;A.walking=false;A.g.position.set(pk[0],pk[1],pk[2]);A.g.rotation.set(0,pk[3],0);A.g.scale.setScalar(G.hide[k]==='okno'?.9:1);A.g.visible=true;if(k==='mishka'&&G.hide[k]==='wTop'){A.sitT=1;A.sit=1;}}
   if(Object.values(G.hide).includes('wIn'))setWard(.1);
   await sleep(900);chk(tok);$('paws').classList.remove('on');await fadeTo(0,600);$('fade').classList.remove('fur');chk(tok);await sleep(300);cat.state='';hideCap();
   const all=Object.keys(SPOTN);
@@ -1470,19 +1514,22 @@ async function stKaravai(tok){const t=T(),all=['tishka',...GUESTS];
 /* the wish: real 3D things float over the table, the child taps one (no reading needed) */
 let wantObjs=[];
 function clearWant(){wantObjs.forEach(o=>scene.remove(o));wantObjs=[];for(const k in TG)if(k.startsWith('w_'))delete TG[k];}
-async function chooseWant(tok){clearWant();const cy=DECK.y+TABLE.h+.75,ctr=new V3(TABLE.x,cy,TABLE.z+.15),yaw=.25,R=closeR(1.5);
+/* the mouse wishes only for things he has NOT been given today (+ a big festive пышка) */
+function wantList(){const got=new Set(GUESTS.map(k=>G.gifts[k].id));const pool=shuffle(GIFTS.filter(g=>!got.has(g.id))).slice(0,FULL?5:4).map(g=>({id:g.id,w:g.nom,acc:g.acc}));
+  pool.splice(Math.floor(Math.random()*(pool.length+1)),0,{id:'pyshka',w:'пышка',acc:'пышку'});return pool;}
+async function chooseWant(tok){const WL=wantList();clearWant();const cy=DECK.y+TABLE.h+.75,ctr=new V3(TABLE.x,cy,TABLE.z+.15),yaw=.25,R=closeR(1.5);
   shot(ctr.x,ctr.y-.05,ctr.z,R,null,1,.16,yaw);
   const aspect=innerWidth/innerHeight,fov=(aspect<.8?52:aspect<1.2?47:42)*Math.PI/180,d=distFor(R),visW=2*d*Math.tan(fov/2)*aspect;
-  const n=WANT.length,sp=Math.min(.62,visW*.86/n),sc=clamp(sp/.42,.55,1.35);const rx=Math.cos(yaw),rz=-Math.sin(yaw);
-  WANT.forEach((w,i)=>{const src=giftModels[w.id];const o=src.clone(true);o.visible=true;o.scale.setScalar(.001);o.rotation.set(.25,0,0);
+  const n=WL.length,sp=Math.min(.62,visW*.86/n),sc=clamp(sp/.42,.55,1.35);const rx=Math.cos(yaw),rz=-Math.sin(yaw);
+  WL.forEach((w,i)=>{const src=giftModels[w.id];const o=src.clone(true);o.visible=true;o.scale.setScalar(.001);o.rotation.set(.25,0,0);
     const off=(i-(n-1)/2)*sp;o.position.set(ctr.x+rx*off,cy-.1*sc+(i%2?.08:0),ctr.z+rz*off);o.userData={y0:o.position.y,ph:i,sc};scene.add(o);wantObjs.push(o);
     TG['w_'+w.id]={p:()=>o.position.clone().add(new V3(0,.12*sc,0)),r:Math.max(.2,sp*.46),ring:()=>o.position.clone(),rr:sp*.4};});
   sfx.happy();await tween(500,x=>wantObjs.forEach(o=>o.scale.setScalar(Math.max(.001,o.userData.sc*easeB(x)))));chk(tok);
-  const id=await pick(WANT.map(w=>'w_'+w.id),WANT.map(w=>'w_'+w.id),TXT.wantQ,'Нажми на желание');chk(tok);
-  const ch=wantObjs[WANT.findIndex(w=>'w_'+w.id===id)];
+  const id=await pick(WL.map(w=>'w_'+w.id),WL.map(w=>'w_'+w.id),TXT.wantQ,'Нажми на желание');chk(tok);
+  const ch=wantObjs[WL.findIndex(w=>'w_'+w.id===id)];
   confetti(ch.position.clone(),24);sfx.happy();
   const s0=ch.userData.sc;await tween(600,x=>{wantObjs.forEach(o=>{if(o!==ch)o.scale.setScalar(Math.max(.001,o.userData.sc*(1-x)));});ch.scale.setScalar(s0*(1+.5*easeB(x)));ch.position.x=lerp(ch.position.x,ctr.x,x*.3);ch.position.z=lerp(ch.position.z,ctr.z,x*.3);});chk(tok);
-  return WANT.find(w=>'w_'+w.id===id);}
+  return WL.find(w=>'w_'+w.id===id);}
 
 async function stNight(tok){const t=T();const lawn=G.lawn;
   if(lawn)shot(-1.8,.7,3.4,closeR(4.4),null,1,.42,2.6);else shot(.2,1.2,-1.5,closeR(5.2),null,1,.38,.22);
@@ -1495,12 +1542,12 @@ async function stNight(tok){const t=T();const lawn=G.lawn;
       if(dm>bd){bd=dm;best=a;}}
     await walkTo(t,KAR.x+Math.cos(best)*1.9,KAR.z+Math.sin(best)*1.9,2);chk(tok);await walkTo(t,KW.x,KW.z-.1,2,true);chk(tok);await walkTo(t,.45,2.05,2,true);chk(tok);await faceTo(t,-.6,1.8);
     order.sort((a,b)=>{const pa=chars[a].g.position,pb=chars[b].g.position;return Math.hypot(pa.x-KW.x,pa.z-KW.z)-Math.hypot(pb.x-KW.x,pb.z-KW.z);});}
-  else{await go(t,0,.3,2);chk(tok);await faceTo(t,0,6);}
+  else{await go(t,0,.25,2);chk(tok);await walkTo(t,0,1.7,2,true);chk(tok);await walkTo(t,.45,2.05,2,true);chk(tok);await faceTo(t,-.6,1.8);}
   sfx.creak();await tween(900,x=>setGate(ease(x)));chk(tok);
   for(const k of order){const A=chars[k];shot(0,0,0,closeR(2.2),A.g,.6,.3,.5);
     if(lawn){await walkTo(A,KW.x,KW.z+.15,2.4);chk(tok);await walkTo(A,-.6,1.75,2.4,true);chk(tok);await faceTo(A,t.g.position.x,t.g.position.z);}
-    else{await go(A,0,1.9,2.4);chk(tok);await faceTo(A,0,0);}
-    if(lawn)shot(-.1,.55,1.9,closeR(1.7),null,1,.25,.5);else shot(0,.6,1.1,closeR(1.7),null,1,.25,.45);
+    else{await go(A,0,.25,2.4);chk(tok);await walkTo(A,-.15,1.55,2.4,true);chk(tok);await walkTo(A,-.6,1.75,2.4,true);chk(tok);await faceTo(A,t.g.position.x,t.g.position.z);}
+    shot(-.08,.55,1.9,closeR(1.7),null,1,.25,.5);
     act(t,'wave',1800);act(A,'wave',1800);floatWord('пока!',A.g.position.clone().add(new V3(0,A.top+.3,0)),'#4f9a48',1.6);
     await speak(PH.bye(k));chk(tok);
     await walkTo(A,0,9.6,2.6);chk(tok);walkTo(A,0,18,2.6).then(()=>{A.g.visible=false;});}
@@ -1728,7 +1775,7 @@ function loop(now){requestAnimationFrame(loop);const raw=(now-last)/1000;const r
 buildTerrain();buildWorld();buildExtrasDyn();buildSky();buildProps();buildDecorations();buildGiftStuff();buildFood();buildAnimals();buildBedroom();buildRing();
 showcase();resize();camCur.t.copy(cam.goal);camCur.d=distFor(cam.R);cam.pitch=cam.pitchGoal;cam.yaw=cam.yawGoal;requestAnimationFrame(loop);
 window.__T={said,tap:id=>picked(id),get pickIds(){return pickRes?pickIds.slice():null;},get want(){return pickWant;},get saying(){return !!sayRes;},get txt(){return $('sayTxt').textContent;},
-  get mode(){return mode;},get ch(){return curCh;},setSpeed:v=>SPEED=v,where:()=>{const o={};for(const k in chars){const p=chars[k].g.position,st=SEATS[k];o[k]=[+p.x.toFixed(2),+p.z.toFixed(2),'seat',+st.x.toFixed(2),+st.z.toFixed(2),G.hide[k]];}return o;},setL:v=>{L=v;},jump:c=>jumpTo(c),G,
+  get mode(){return mode;},get ch(){return curCh;},setSpeed:v=>SPEED=v,near:()=>{const ks=Object.keys(chars),o=[];for(let i=0;i<ks.length;i++)for(let j=i+1;j<ks.length;j++){const A=chars[ks[i]].g,B=chars[ks[j]].g;if(!A.visible||!B.visible)continue;const d=Math.hypot(A.position.x-B.position.x,A.position.z-B.position.z);if(d<.5)o.push(ks[i]+'-'+ks[j]+':'+d.toFixed(2));}if(!inRoom)for(const k of ks){const A=chars[k];if(!A.walking)continue;OBST.forEach((q,n)=>{const d=Math.hypot(A.g.position.x-q.x,A.g.position.z-q.z);if(d<q.r-.05)o.push(k+'-obst'+n+':'+(d/10).toFixed(2));});}return o;},where:()=>{const o={};for(const k in chars){const p=chars[k].g.position,st=SEATS[k];o[k]=[+p.x.toFixed(2),+p.z.toFixed(2),'seat',+st.x.toFixed(2),+st.z.toFixed(2),G.hide[k]];}return o;},setL:v=>{L=v;},jump:c=>jumpTo(c),G,
   get data(){return {CH,GUESTS,TXT,DECO,GIFTS,WISHES,SPOTN,HIDE_OPTS,FOOD,WANT,PH,FULL,SET_STRICT,SET_FULL};},setFull(b){FULL=!!b;applySet();syncLv();}};
 </script>
 </body></html>
