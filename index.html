@@ -497,11 +497,12 @@ const TUMB={x:4.4,z:-4.95};
 const SHK={x:-4.75,z:-2.2};
 const JUG={x:-4.5,z:-.35};
 const PIL={x:4.1,z:-1.1};
-const OBST=[{x:4.1,z:-1.1,r:1.0},{x:-3.9,z:-4.95,r:.85},{x:4.4,z:-4.95,r:.42},{x:-4.75,z:-2.2,r:.5},{x:-4.5,z:-.35,r:.32}];
+const OBST=[];/* filled after SEATS are known */
+const OBST0=[{x:4.1,z:-1.1,r:1.0},{x:-3.9,z:-4.95,r:.85},{x:4.4,z:-4.95,r:.42},{x:-4.75,z:-2.2,r:.5},{x:-4.5,z:-.35,r:.32}];
 const TABLE={x:.25,z:-2.45,r:.92,h:.58};
 const GATE={z:10.5};
 const SEAT_A={tishka:62,petushok:122,kukushka:178,koshka:232,shpits:300,mishka:5};
-const SEATS={};for(const k in SEAT_A){const a=SEAT_A[k]*Math.PI/180;const x=TABLE.x+Math.cos(a)*1.58,z=TABLE.z+Math.sin(a)*1.58;SEATS[k]={x,z,face:Math.atan2(TABLE.x-x,TABLE.z-z)};}
+const SEATS={};setTimeout(()=>{OBST.push(...OBST0,...Object.values(SEATS).map(p=>({x:p.x,z:p.z,r:.42})));},0);for(const k in SEAT_A){const a=SEAT_A[k]*Math.PI/180;const x=TABLE.x+Math.cos(a)*1.58,z=TABLE.z+Math.sin(a)*1.58;SEATS[k]={x,z,face:Math.atan2(TABLE.x-x,TABLE.z-z)};}
 function n2(x,z){return Math.sin(x*.31+Math.sin(z*.17)*1.7)*.5+Math.sin(z*.27+Math.sin(x*.23)*1.3)*.5;}
 const PATHX=z=>0;
 const POND={x:-16.5,z:1.5,r:3.6};
@@ -516,7 +517,7 @@ function H(x,z){const r=Math.hypot(x,(z+1)*1.1);let h=0;
   const sd=Math.abs(z-STREAM_Z(x));if(sd<2.6)h=lerp(-.5,h,smooth(1.1,2.6,sd));
   return h;}
 const Y=H;
-function FY(x,z){if(inRoom&&Math.abs(x-HOUSE.x)<HOUSE.W/2-.1&&z<HOUSE.z+HOUSE.D/2-.05&&z>HOUSE.z-HOUSE.D/2+.1)return .31;if(x>DECK.x0&&x<DECK.x1&&z>DECK.z0&&z<DECK.z1)return DECK.y;if(Math.abs(x)<1.15&&z>=DECK.z1&&z<DECK.z1+.95)return z<DECK.z1+.45?.22:.11;return Y(x,z);}
+function FY(x,z){if(inRoom&&Math.abs(x-HOUSE.x)<HOUSE.W/2-.1&&z<HOUSE.z+HOUSE.D/2-.05&&z>HOUSE.z-HOUSE.D/2+.1)return .31;if(x>DECK.x0&&x<DECK.x1&&z>DECK.z0&&z<DECK.z1)return DECK.y;if(Math.abs(x)<1.15&&z>=DECK.z1&&z<DECK.z1+.95)return z<DECK.z1+.48?.33:.22;return Y(x,z);}
 
 function buildTerrain(){
   const S=170,N=160;const g=new THREE.PlaneGeometry(S,S,N,N);g.rotateX(-Math.PI/2);g.translate(0,0,-4);
@@ -1330,7 +1331,7 @@ async function go(A,x,z,sp){const p=A.g.position;if(!segHits(p.x,p.z,x,z))return
   const d=angDiff(a0,a1),n=Math.max(1,Math.ceil(Math.abs(d)/.4));
   for(let i=1;i<=n;i++){const a=a0+d*i/n;await walkTo(A,TABLE.x+Math.cos(a)*R,TABLE.z+Math.sin(a)*R,sp,true);}
   await walkTo(A,x,z,sp,true);}
-function sitAt(k){const A=chars[k],s=SEATS[k];A.g.position.set(s.x,A.quad?DECK.y+.14:DECK.y+.16-A.legLen*.55,s.z);A.g.rotation.y=s.face;A.sitT=1;A.walking=false;}
+function sitAt(k){const A=chars[k],s=SEATS[k];A.g.position.set(s.x,A.quad?DECK.y+.17:DECK.y+.16+.05-A.legLen,s.z);A.g.rotation.y=s.face;A.sitT=1;A.walking=false;}
 async function toSeat(k,sp){await go(chars[k],SEATS[k].x,SEATS[k].z,sp);sitAt(k);}
 function yawOnly(o){const f=new V3(0,0,1).applyQuaternion(o.quaternion);o.rotation.set(0,Math.atan2(f.x,f.z),0);}
 async function arc(obj,to,toScale,ms,hgt,toRotY,keepRot){scene.attach(obj);if(!keepRot)yawOnly(obj);const from=obj.position.clone(),s0=obj.scale.x,r0=obj.rotation.y,dr=toRotY==null?0:angDiff(r0,toRotY);
@@ -1406,6 +1407,7 @@ async function stDeco(tok){const t=T();
     await speak(d.t);chk(tok);
     dayTo(.02+i*.02,600);}
   if(L===2){overview();await speak(TXT.recap,'Расскажи, что где');chk(tok);}
+  shot(0,0,0,closeR(2.2),t.g,.6,.35,.3);
   await go(t,SEATS.tishka.x,SEATS.tishka.z+.2,2);chk(tok);await faceTo(t,0,8);
   shot(0,0,0,closeR(1.6),t.g,.6,.2,.15);
   hatOnHead('tishka');sfx.happy();confetti(t.g.position.clone().add(new V3(0,1,0)),25);hop(t,2);
@@ -1445,8 +1447,8 @@ async function stGifts(tok){const t=T();
 async function stWish(tok){const t=T();
   shot(TABLE.x,.9,TABLE.z,closeR(2.3),null,1,.4,.25);
   await speak(TXT.wishIn);chk(tok);
-  for(const k of GUESTS){const A=chars[k];const sa=SEAT_A[k];const wa=(SEAT_A.tishka+((sa>SEAT_A.tishka&&sa<SEAT_A.tishka+180)?38:-38))*Math.PI/180;
-    const wx=TABLE.x+Math.cos(wa)*1.58,wz=TABLE.z+Math.sin(wa)*1.58;
+  for(const k of GUESTS){const A=chars[k];const sa=SEAT_A[k];const wa=(SEAT_A.tishka+((sa>SEAT_A.tishka&&sa<SEAT_A.tishka+180)?32:-32))*Math.PI/180;
+    const wx=TABLE.x+Math.cos(wa)*1.85,wz=TABLE.z+Math.sin(wa)*1.85;
     A.g.position.y=DECK.y;await go(A,wx,wz,1.8);chk(tok);await faceTo(A,t.g.position.x,t.g.position.z);chk(tok);
     shot(lerp(wx,t.g.position.x,.5),.9,lerp(wz,t.g.position.z,.5),closeR(1.4),null,1,.25,.5);
     await tween(300,x=>{A.lean=.35*x;});
@@ -1463,7 +1465,7 @@ const REVEAL={pillow:()=>[PIL.x-.4,DECK.y,PIL.z+.85],jug:()=>[JUG.x+.65,DECK.y,J
 const PEEK={pillow:A=>[PIL.x+(A.k==='petushok'?.35:-.25),DECK.y+.5+A.hr*1.1-A.top,PIL.z-.62,0],
   jug:A=>[JUG.x,DECK.y+1.04+A.hr*1.2-A.top,JUG.z,.4],
   wIn:A=>[WARD.x,DECK.y+WARD.leg,WARD.z-.02,0],
-  wTop:A=>A.k==='mishka'?[WARD.x+.1,ward.top-A.legLen*.55+.02,WARD.z+.12,.15]:[WARD.x+.35,ward.top,WARD.z-.1,.3],
+  wTop:A=>A.k==='mishka'?[WARD.x+.1,ward.top+.05-A.legLen,WARD.z+.12,.15]:[WARD.x+.35,ward.top,WARD.z-.1,.3],
   wUnder:A=>A.quad?[WARD.x+.15,DECK.y-.375,WARD.z+.4+.06-.25,.15]:[WARD.x+.25,DECK.y-.22,WARD.z+.08,.3],
   okno:A=>[WIN.x+.26,SILL_Y+.04,WIN.z+.13,-.3],
   tumb:A=>A.quad?[TUMB.x-.1,DECK.y-.375,TUMB.z+.33+.06-.25,-.15]:[TUMB.x-.08,DECK.y-.22,TUMB.z+.05,-.3]};
@@ -1536,7 +1538,7 @@ async function stKaravai(tok){const t=T(),all=['tishka',...GUESTS];
   [t,...G5].forEach(A=>A.state='cheer');await tween(500,x=>{[t,...G5].forEach(A=>A.hopY=.16*ease(x));});chk(tok);sfx.happy();
   await speak(TXT.kar[1]);chk(tok);
   // 3) down low
-  await tween(500,x=>{[t,...G5].forEach(A=>{A.hopY=lerp(.16,-.08,ease(x));A.lean=.35*ease(x);});});[t,...G5].forEach(A=>{A.state='';if(!A.quad)A.sitT=.6;});chk(tok);
+  await tween(500,x=>{[t,...G5].forEach(A=>{A.hopY=lerp(.16,-.08,ease(x));A.lean=.35*ease(x);});});[t,...G5].forEach(A=>{A.state='';});chk(tok);
   await speak(TXT.kar[2]);chk(tok);
   // 4) wide
   [t,...G5].forEach(A=>{A.sitT=0;A.state='give';});await tween(800,x=>{[t,...G5].forEach(A=>{A.hopY=lerp(-.08,0,x);A.lean=.35*(1-x);});rad=lerp(KAR.r,KAR.r*1.35,ease(x));place();});chk(tok);
@@ -1586,9 +1588,10 @@ async function stNight(tok){const t=T();const lawn=G.lawn;
     shot(-.08,.55,1.9,closeR(1.7),null,1,.25,.5);
     act(t,'wave',1800);act(A,'wave',1800);floatWord('пока!',A.g.position.clone().add(new V3(0,A.top+.3,0)),'#4f9a48',1.6);
     await speak(PH.bye(k));chk(tok);
-    await walkTo(A,0,9.6,2.6);chk(tok);walkTo(A,0,18,2.6).then(()=>{A.g.visible=false;});}
-  await sleep(2800);chk(tok);sfx.creak();tween(900,x=>setGate(1-ease(x)));
-  await dayTo(1,1500);chk(tok);
+    if(k===order[order.length-1]){(async()=>{try{await walkTo(A,0,9.6,2.6);chk(tok);await walkTo(A,0,18,2.6);chk(tok);A.g.visible=false;}catch(e){}})();
+      (async()=>{try{await sleep(3600);chk(tok);sfx.creak();tween(900,x=>setGate(1-ease(x)));}catch(e){}})();}
+    else{await walkTo(A,0,9.6,2.6);chk(tok);walkTo(A,0,18,2.6).then(()=>{A.g.visible=false;});}}
+  dayTo(1,1500);
   shot(0,0,0,closeR(1.9),t.g,.6,.28,.45);
   caption('','Тишка идёт домой спать.');
   await go(t,-1.3,-4.5,2);chk(tok);await faceTo(t,-1.3,-9);chk(tok);
@@ -1763,8 +1766,8 @@ canvas.addEventListener('wheel',e=>{e.preventDefault();cam.zoomU=clamp(cam.zoomU
 function animP(A,t,dt){const walk=A.walking;A.phase+=dt*(walk?(A.stepK||9):0);
   const k=Math.min(1,dt*12);
   A.sit+=(A.sitT-A.sit)*Math.min(1,dt*6);A.lie+=(A.lieT-A.lie)*Math.min(1,dt*4);
-  A.legs.forEach((lg,i)=>{const s=A.quad?((i===0||i===3)?1:-1):(i?-1:1);const tg=walk?Math.sin(A.phase)*.5*s-.08:(A.quad?0:-A.sit*1.35);lg.rotation.x+=(tg-lg.rotation.x)*k;
-    const kt=walk?.1+Math.max(0,-Math.cos(A.phase)*s)*.85:(A.quad?0:A.sit*1.3);const kn=A.knees[i];kn.rotation.x+=(kt-kn.rotation.x)*k;});
+  A.legs.forEach((lg,i)=>{const s=A.quad?((i===0||i===3)?1:-1):(i?-1:1);const tg=walk?Math.sin(A.phase)*.5*s-.08:(A.quad?0:-A.sit*1.45);lg.rotation.x+=(tg-lg.rotation.x)*k;
+    const kt=walk?.1+Math.max(0,-Math.cos(A.phase)*s)*.85:(A.quad?0:A.sit*.15);const kn=A.knees[i];kn.rotation.x+=(kt-kn.rotation.x)*k;});
   const ar=[0,0],az=[0,0];
   if(walk){ar[0]=-Math.sin(A.phase)*.5;ar[1]=Math.sin(A.phase)*.5;}
   switch(A.state){
